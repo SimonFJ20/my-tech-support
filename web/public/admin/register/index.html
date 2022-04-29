@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/global.css">
+    <title>MyTechSupport</title>
+</head>
+<body>
+
+    <div id="navigator">
+        <a href="/">index</a>
+        <a href="/login/">login</a>
+        <a href="/tickets/">tickets</a>
+        <a href="/customers/">customers</a>
+        <a href="/admin/">admin</a>
+    </div>
+    
+    <h1>Register new supporter</h1>
+
+    <form id="login-form">
+        <input type="email" name="email" placeholder="Email">
+        <br>
+        <input type="text" name="firstName" placeholder="First name">
+        <br>
+        <input type="email" name="lastName" placeholder="Last name">
+        <br>
+        <input type="password" name="password" placeholder="Password">
+        <br>
+        <label for="permissions-select">Permissions</label>
+        <select name="permissions" id="permissions-select">
+            <option value="default" selected>Default</option>
+            <option value="default">Admin</option>
+        </select>
+        <br>
+        <label for="role-select">Role</label>
+        <select name="role" id="role-select">
+            <option value="level 1" selected>Level 1</option>
+            <option value="level 2">Level 2</option>
+        </select>
+        <br>
+        <input type="submit" value="Register">
+    </form>
+    
+</body>
+</html>

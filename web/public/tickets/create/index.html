@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/global.css">
+    <title>MyTechSupport</title>
+</head>
+<body>
+
+    <div id="navigator">
+        <a href="/">index</a>
+        <a href="/login/">login</a>
+        <a href="/tickets/">tickets</a>
+        <a href="/customers/">customers</a>
+        <a href="/admin/">admin</a>
+    </div>
+    
+    <h1>Create new ticket</h1>
+
+    <form id="create-ticket-form">
+        <input type="text" name="title" placeholder="Title">
+        <br>
+        <label for="asignee-dropdown">Assignee</label>
+        <select name="asignee" id="asignee-dropdown">
+            <option value="1">Maksim Shvets</option>
+            <option value="2">Sofus Siggård</option>
+            <option value="3">Asger Basker</option>
+        </select>
+        <br>
+        <label for="category-dropdown">Category</label>
+        <select name="category" id="category-dropdown">
+            <option value="specific" selected>New (specify)</option>
+            <option value="general">General</option>
+            <option value="specific">Specific</option>
+        </select>
+        <input type="text" name="custom-category" placeholder="Custom category">
+        <br>
+        <label for="due-datepicker">Due</label>
+        <input type="datetime-local" name="due" id="due-datepicker">
+        <br>
+        <input type="submit" value="Login">
+    </form>
+
+</body>
+</html>
