@@ -1,4 +1,4 @@
-import { Router, Status } from "../imports/oak.ts";
+import { Router } from "../imports/oak.ts";
 import { Database } from "../database/Database.ts";
 import { oneSupporter } from "../supporters/one.ts";
 import { registerSupporter } from "../supporters/register.ts";
