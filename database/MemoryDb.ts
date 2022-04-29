@@ -39,6 +39,12 @@ export class MemoryDb implements Database {
         return this.findInById(this.customers, id);
     }
 
+
+    
+    public async sessionByToken(token: string): Promise<Session> {
+        return this.findIn(this.sessions, v => v.token === token);
+    }
+
     public async insertSession(session: Session): Promise<void> {
         this.sessions.push(session);
     }
@@ -63,9 +69,14 @@ export class MemoryDb implements Database {
 
 
 
-    public async allCategories(): Promise<string[]> {
+    public async allTicketCategories(): Promise<string[]> {
         return [...new Set(this.tickets.map(t => t.category))];
     }
+
+    public async allTicketsSortedById(): Promise<Ticket[]> {
+        return this.tickets.map(v => v).sort((a, b) => a.due.getTime() - b.due.getTime());
+    }
+
     public async ticket(id: number): Promise<Ticket> {
         return this.findInById(this.tickets, id);
     }

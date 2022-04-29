@@ -1,6 +1,9 @@
-import { Application, Router, send } from "https://deno.land/x/oak@v10.4.0/mod.ts";
+import { Application, Router, send } from "../imports/oak.ts";
 import { Database } from "../database/Database.ts";
 import { supportersApiRouter } from "./supporters.ts";
+import { sessionsApiRouter } from "./sessions.ts";
+import { ticketsApiRouter } from "./tickets.ts";
+import { customersApiRouter } from "./customers.ts";
 
 export const webserver = async (port: number, db: Database) => {
     const app = new Application();
@@ -32,5 +35,8 @@ const apiRouter = (db: Database): Router => {
     const router = new Router();
     router.prefix('/api');
     router.use(supportersApiRouter(db).routes());
+    router.use(ticketsApiRouter(db).routes());
+    router.use(customersApiRouter(db).routes());
+    router.use(sessionsApiRouter(db).routes());
     return router;
 }

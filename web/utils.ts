@@ -1,5 +1,4 @@
-import { Context, Status } from "https://deno.land/x/oak@v10.4.0/mod.ts";
-import { ResponseBody,ResponseBodyFunction } from "https://deno.land/x/oak@v10.4.0/response.ts";
+import { Context, Status, ResponseBody, ResponseBodyFunction } from "../imports/oak.ts";
 
 export const getBody = (ctx: Context) => {
     const body = ctx.request.body();

@@ -1,4 +1,4 @@
-import { Router, Status } from "https://deno.land/x/oak@v10.4.0/mod.ts";
+import { Router, Status } from "../imports/oak.ts";
 import { Database } from "../database/Database.ts";
 import { oneSupporter } from "../supporters/one.ts";
 import { registerSupporter } from "../supporters/register.ts";
@@ -21,9 +21,7 @@ export const supportersApiRouter = (db: Database): Router => {
         try {
             const body = await getBody(ctx);
             const supporter = await registerSupporter(body, db);
-            ctx.response.status = Status.OK;
-            ctx.response.body = supporter;
-            respondOK(ctx, supporter);
+            respondOK(ctx, {ok: true, supporter});
         } catch (c) {
             handleCatched(ctx, c, [
                 'email not specified',

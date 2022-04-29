@@ -20,6 +20,8 @@ export const registerSupporter = async (req: SupporterRegisterRequest, db: Datab
     return supporter;
 }
 
+
+
 const validateRequestFields = (req: SupporterRegisterRequest) => {
     if (typeof req.email !== 'string' || req.email === '')
         throw new Error('email not specified');

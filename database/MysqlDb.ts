@@ -4,7 +4,7 @@ import { Customer } from "../customers/Customer.ts";
 import { Session } from "../sessions/Session.ts";
 import { Supporter } from "../supporters/Supporter.ts";
 import { Ticket } from "../tickets/Ticket.ts";
-import { Client } from "https://deno.land/x/mysql@v2.10.2/mod.ts";
+import { Client } from "../imports/mysql.ts";
 
 export class MysqlDb implements Database, AsyncResource {
 
@@ -62,8 +62,13 @@ export class MysqlDb implements Database, AsyncResource {
         throw new Error("Method not implemented.");
     }
 
-    public async allCategories(): Promise<string[]> {
+    public async allTicketCategories(): Promise<string[]> {
         const result = await this.client.query('SELECT DISTINCT category FROM Tickets');
+        return result;
+    }
+
+    public async allTicketsSortedById(): Promise<Ticket[]> {
+        const result = await this.client.query('SELECT * FROM Tickets ORDER BY due DESC');
         return result;
     }
 

@@ -99,6 +99,12 @@ Requires admin persmissions
 /api/tickets/categories
 ```
 
+### GET AllSortedByDue
+
+```
+/api/tickets/allsortedbydue
+```
+
 ## Customers
 
 [`Customer` model](/customers/Customer.ts)

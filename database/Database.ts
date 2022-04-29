@@ -11,6 +11,7 @@ export interface Database {
 
     customer(id: CustomerId): Promise<Customer>;
 
+    sessionByToken(token: string): Promise<Session>;
     insertSession(session: Session): Promise<void>;
 
     supporter(id: SupporterId): Promise<Supporter>;
@@ -18,6 +19,7 @@ export interface Database {
     isSupporterEmailUnique(email: string): Promise<boolean>;
     insertSupporter(supporter: Supporter): Promise<void>;
 
-    allCategories(): Promise<string[]>;
+    allTicketCategories(): Promise<string[]>;
+    allTicketsSortedById(): Promise<Ticket[]>;
     ticket(id: TicketId): Promise<Ticket>;
 }
